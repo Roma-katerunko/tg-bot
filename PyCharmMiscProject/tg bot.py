@@ -51,7 +51,7 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await query.answer()
 
     if query.data == "draw_card":
-        rarity = random.choices(["common", "rare", "epic","legends"], weights=[1, 30, 7, 50])[0]
+        rarity = random.choices(["common", "rare", "epic","legends"], weights=[50, 30, 7, 2])[0]
         card = random.choice(cards[rarity])
 
         if os.path.exists(card["image"]):
@@ -71,3 +71,4 @@ if __name__ == "__main__":
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CallbackQueryHandler(button))
     app.run_polling()
+
